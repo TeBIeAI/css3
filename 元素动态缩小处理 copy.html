@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            height: 60px;
+            background: blueviolet;
+            display: flex;
+        }
+
+        header .left {
+            display: flex;
+            background-color: aquamarine;
+            margin-right: auto;
+        }
+
+        header .left div {
+            margin-right: 1px;
+            border-right: 1px salmon solid;
+        }
+
+        main {
+            flex-grow: 1;
+            background: #ddd;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        main>div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            padding: 10px;
+            box-sizing: border-box;
+            background-clip: content-box;
+            border: 1px solid #aaa;
+        }
+
+        footer {
+            height: 60px;
+            background: #e4393c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="left">
+                <div>111</div>
+                <div>222</div>
+            </div>
+            <div class="right">
+                <div>333</div>
+            </div>
+        </header>
+        <main>
+        </main>
+        <footer></footer>
+    </div>
+
+</body>
+
+</html>

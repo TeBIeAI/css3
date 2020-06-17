@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100%;
+            background-color: #ddd;
+        }
+
+        .content {
+            background-color: aqua;
+            width: fit-content;
+            /* 有兼容性问题 */
+            padding: 3px;
+            margin: 0 auto;
+            margin-bottom: 1px;
+        }
+
+        .box {
+            height: 150px;
+            background: linear-gradient(90deg, red, green);
+        }
+
+        .box1 {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(red, yellow 30%, black 70%);
+        }
+
+        .box1:hover::after {
+            position: absolute;
+            content: attr(data-link);
+            color: black;
+            left: 0;
+            bottom: -30px;
+        }
+
+        .i-input {
+            outline: none;
+            border: none;
+            width: 100%;
+            font-size: 1.3rem;
+        }
+
+        .field {
+            width: 50%;
+
+            position: relative;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        .field::after {
+            content: "";
+            background: linear-gradient(to right, white, red, green, blue, white);
+            display: block;
+            height: 1px;
+        }
+
+        .field:hover:before {
+            content: attr(data-help);
+            color: #666;
+            font-size: 18px;
+            position: absolute;
+            top: -20px;
+        }
+
+        .shape_box {
+
+            background-color: #ddd;
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        .shape_box2 {
+
+            background-color: #ddd;
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        .shape2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            clip-path: circle(50%);
+        }
+
+        .shape {
+            width: 100px;
+            height: 100px;
+            background: red;
+            clip-path: circle(
+                    /*圆心*/
+                    50% at
+                    /*圆形位置定位*/
+                    0 100%);
+        }
+
+        /* 椭圆 */
+        .shape3 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            clip-path: circle(50%);
+        }
+
+        .shape3 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            clip-path: ellipse(20% 50%);
+        }
+
+        /* 多边形 */
+        .polygon_box {
+            background-color: #ddd;
+            width: max-content;
+            margin: 0 auto;
+            background-color: red;
+            overflow: hidden;
+        }
+
+        .polygon {
+
+            width: 100px;
+            height: 100px;
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+            background: black;
+            margin-top: 10px;
+        }
+
+        .polygon1 {
+            width: 100px;
+            height: 100px;
+            clip-path: polygon(50% 0, 75% 50%, 50% 100%, 25% 50%);
+            background: black;
+            margin-top: 10px;
+        }
+
+        /* 字体环绕多边形 */
+        .polygon_box1 {
+            overflow: hidden;
+        }
+
+        .polygon2 {
+            width: 100px;
+            height: 100px;
+            clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+            background: black;
+            margin-top: 10px;
+            color: #fff;
+            float: left;
+            left: 20px;
+            margin-right: 10px;
+            shape-outside: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        }
+
+        /* 粘性定位 */
+        .nainxing {
+            width: 400px;
+            height: 200px;
+            border: blueviolet 5px solid;
+            overflow-y: scroll;
+        }
+
+        .nainxing .nianxingbox h2 {
+            background-color: #ddd;
+            position: sticky;
+            top: 0;
+        }
+
+        .nainxing .nianxingbox:nth-of-type(even) h2 {
+            background-color: blueviolet;
+        }
+
+
+        .nainxing .nianxingbox {
+            padding-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="content">你好码大撒大撒大苏打阿德</div>
+        <div class="content1">你好码</div>
+    </div>
+    <div class="box1" data-link="把手放小太阳上">
+
+    </div>
+
+    <div class="field" data-help="请输入100以内内容">
+        <input class="i-input" placeholder="请输入内容" type="text">
+    </div>
+
+    <div class="shape_box">
+        <div class="shape"></div>
+    </div>
+
+    <div class="shape_box2">
+        <div class="shape2"></div>
+    </div>
+
+    <!-- 椭圆 -->
+    <div class="shape_box3">
+        <div class="shape3"></div>
+    </div>
+
+    <!-- 绘制多边形 -->
+    <div class="polygon_box">
+        <div class="polygon">
+
+        </div>
+    </div>
+    <!-- 绘制多边形1 -->
+    <div class="polygon_box">
+        <div class="polygon1">
+
+        </div>
+    </div>
+    <!-- 绘制多边形2 -->
+    <div class="polygon_box1">
+        <div class="polygon2">
+
+        </div>
+        的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿的撒大苏打阿斯顿撒旦撒旦撒旦阿斯顿
+    </div>
+
+    <!-- 粘性定位 -->
+    <h1>粘性定位</h1>
+    <div class="nainxing">
+        <div class="nianxingbox">
+            <h2>vue </h2>
+            <div class="nainxing_content">
+                啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+            </div>
+        </div>
+        <div class="nianxingbox">
+            <h2>react </h2>
+            <div class="nainxing_content">
+                啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+            </div>
+        </div>
+        <div class="nianxingbox">
+            <h2>js </h2>
+            <div class="nainxing_content">
+                啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+            </div>
+        </div>
+        <div class="nianxingbox">
+            <h2>css </h2>
+            <div class="nainxing_content">
+                啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
