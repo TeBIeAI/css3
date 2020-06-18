@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #2c3e50;
+            height: 100vw;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        main {
+            width: 150px;
+            height: 150px;
+            border: orange 1px solid;
+            transform-style: preserve-3d;
+            transform-origin: center center -200px;
+            transform: perspective(900px) rotateX(-10deg);
+            transition: 1s;
+            position: relative;
+            display: flex;
+        }
+
+        .box {
+            width: 500px;
+            height: 500px;
+            border: solid 1px seagreen;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* .box:hover main {
+            transform: perspective(900px) rotateX(-10deg) rotateY(90deg);
+        } */
+
+        main>div {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        main>div img {
+            width: 100%;
+            height: 100%;
+        }
+
+        main div:nth-child(1) {
+            transform-origin: center center -200px;
+            transform: rotateY(90deg);
+        }
+
+        main div:nth-child(2) {
+            transform-origin: center center -200px;
+            transform: rotateY(180deg);
+        }
+
+        main div:nth-child(3) {
+            transform-origin: center center -200px;
+            transform: rotateY(270deg);
+        }
+
+        main div:nth-child(4) {
+            transform-origin: center center -200px;
+            transform: rotateY(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <main>
+            <div><img src="./images/1.jpg" alt=""></div>
+            <div><img src="./images/2.jpg" alt=""></div>
+            <div><img src="./images/img.jpg" alt=""></div>
+            <div><img src="./images/timg.jpg" alt=""></div>
+        </main>
+    </div>
+</body>
+<script src="./jquery-3.5.1.min.js"></script>
+<script>
+    var num = 90;
+    if (timer) {
+        clearInterval(timer)
+    }
+    var timer = setInterval(function () {
+        $('main').css({
+            transform: 'perspective(900px) rotateX(-10deg) rotateY(' + num + 'deg)'
+        })
+        num += 90
+    }, 1000)
+</script>
+
+</html>
